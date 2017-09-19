@@ -1,0 +1,36 @@
+{
+  "name": "design",
+  "version": "1.0.0",
+  "description": "Learn CSS and HTML",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"hey dude!\"",
+    "watch": "",
+    "css:build": "node-sass ./themes/design/assets/styles/style.scss ./themes/design/style.css",
+    "css:watch": "node-sass -w ./themes/design/assets/styles/ -o ./themes/design",
+    "js:build": "npm run js:lint && uglifyjs ./themes/design/assets/js/*.js -o ./themes/design/main.js",
+    "js:watch": "onchange './themes/design/assets/js/*.js' -- npm run js:build",
+    "js:lint": "eslint ./themes/design/assets/js/*.js",
+    "watch:all": "parallelshell 'npm run css:watch' 'npm run js:watch'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git:way-out-development/design.git"
+  },
+  "keywords": [
+    "css",
+    "html",
+    "sass",
+    "javascript"
+  ],
+  "author": "Marius Stiedl",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^4.6.1",
+    "eslint-config-google": "^0.9.1",
+    "node-sass": "^4.5.3",
+    "onchange": "^3.2.1",
+    "parallelshell": "^3.0.1",
+    "uglify-js": "^3.1.0"
+  }
+}

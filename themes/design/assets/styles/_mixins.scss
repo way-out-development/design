@@ -1,0 +1,20 @@
+@mixin mq($name){
+  @if map-has_key($breakpoints, $name) {
+    $width: map_get($breakpoints, $name);
+    @media screen and (max-width: map_get($breakpoints, $name)){
+      @content;
+    }
+  }
+  @else {
+    @warn 'There is no item with #{$name}';
+    @return null;
+  }
+}
+
+@mixin transition($what: all, $time: 0.2s, $how: ease-in-out) {
+  -webkit-transition: $what $time $how;
+  -moz-transition:    $what $time $how;
+  -ms-transition:     $what $time $how;
+  -o-transition:      $what $time $how;
+  transition:         $what $time $how;
+}
